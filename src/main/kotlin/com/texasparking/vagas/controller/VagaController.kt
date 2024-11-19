@@ -1,5 +1,6 @@
 package com.texasparking.vagas.controller
 
+import com.texasparking.vagas.model.Vaga
 import com.texasparking.vagas.service.VagaService
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.DeleteMapping
@@ -27,7 +28,7 @@ class VagaController(private val service: VagaService) {
     fun criarVaga(@RequestBody vaga: Vaga): Vaga = service.criarVaga(vaga)
 
     @PutMapping("/{id}")
-    fun atualizarVaga(@PathVariable id: Long, @RequestBody vaga : vaga): vaga = service.atualizarVaga(id, vaga)
+    fun atualizarVaga(@PathVariable id: Long, @RequestBody vaga : Vaga): Vaga = service.atualizarVaga(id, vaga)
 
     @DeleteMapping("/{id}")
     fun deletarVaga(@PathVariable id: Long) = service.deletarVaga(id)
